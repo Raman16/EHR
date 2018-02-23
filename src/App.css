@@ -1,0 +1,77 @@
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*Calendar Css By Raman*/
+.calendar-content-box {
+  height: 705px;
+}
+
+.identity-box1 {
+  background: #14bb00;
+}
+.identity-box2 {
+  background: #00bbbb;
+}
+.identity-box3 {
+  background: #bb0081;
+}
+.identity-box4 {
+  background: #bb0000;
+}
+.identity-box5 {
+  background: #63925d;
+}
+.identity-box5 {
+  background: #63925d;
+}
+.identity-box6 {
+  background: #03a9f4;
+}
+
+
+.identity-box1-span{
+  width: 50%;
+}
+.identity-box2-span {
+  width: 90%;
+}
+.identity-box3-span {
+  width: 70%;
+}
+.identity-box4-span {
+  width: 30%;
+}
+.identity-box5-span {
+  width: 67%;
+}
+
+
+

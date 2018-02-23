@@ -1,0 +1,455 @@
+.cal-appoint-container {
+	position: relative;
+	padding-left: 15px;
+	padding-right: 15px;
+	@include transistion(all .3s ease); 
+	.appoint-select-box {
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		z-index: 999;
+		margin-top: 30px;
+		padding: 0;
+		background: $bgSecondaryColor;
+		border-radius: 3px;
+		border: 0px solid darken($bgPrimaryColor, 5%);
+		box-shadow: 0 1px 3px 0 rgba(darken($bgHeadPrimary,15%),.07);
+		@include transistion(all .3s ease); 
+		.appoint-select-cover {
+			width: 100%;
+			padding: 0;
+			-ms-transform: scale(1,0);
+			-webkit-transform: scale(1,0);
+			transform: scale(1,0);
+			-ms-transform-origin: 0 0;
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+			opacity: 0;
+			@include transistion(all .1s ease);
+			transition-delay: 0s;
+		}
+	}
+	.appoint-list-box {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 0;
+		z-index: 999;
+		margin-top: 30px;
+		padding: 0;
+		background: $bgSecondaryColor;
+		border-radius: 3px;
+		border: 0 solid darken($bgPrimaryColor, 5%);
+		box-shadow: 0 1px 3px 0 rgba(darken($bgHeadPrimary,15%),.07);
+		@include transistion(all .3s ease); 
+		.appoint-list-cover {
+			width: 100%;
+			padding: 0;
+			-ms-transform: scale(1,0);
+			-webkit-transform: scale(1,0);
+			transform: scale(1,0);
+			-ms-transform-origin: 50% 0;
+			-webkit-transform-origin: 50% 0;
+			transform-origin: 50% 0;
+			opacity: 0;
+			@include transistion(all .1s ease);
+			transition-delay: 0s;
+		}
+	}
+	&.active-left-menu {
+		padding-left: 230px;
+		@media only screen and (max-width : $mediumScreen){
+			padding-left: 15px;
+		}
+		.side-min-btn.left {
+			button {
+				.icon {
+					-ms-transform: rotate(0deg);
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+			}
+		}
+		.appoint-select-box {		
+			width: 215px;
+			left: 0;
+			padding: 10px 15px;
+			padding-top: 10px;
+			border: 1px solid darken($bgPrimaryColor, 5%);
+			.appoint-select-cover {
+				-ms-transform: scale(1,1);
+				-webkit-transform: scale(1,1);
+				transform: scale(1,1);
+				transition-delay: .1s;
+				opacity: 1;
+			}
+		}
+	}
+	&.active-right-menu {
+		padding-right: 275px;
+		@media only screen and (max-width : $mediumScreen){
+			padding-right: 15px;
+		}
+		.side-min-btn.right {
+			button {
+				.icon {
+					-ms-transform: rotate(0deg);
+					-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+				}
+			}
+		}
+		.appoint-list-box {		
+			width: 260px;
+			right: 0;
+			padding: 10px 15px;
+			padding-top: 10px;
+			border: 1px solid darken($bgPrimaryColor, 5%);
+			.appoint-list-cover {
+				-ms-transform: scale(1,1);
+				-webkit-transform: scale(1,1);
+				transform: scale(1,1);
+				transition-delay: .2s;
+				opacity: 1;
+			}
+		}
+	}
+}
+.side-min-btn {
+	position: absolute;
+	top: 1px;
+	width: 27px;
+	z-index: 99;
+	&.left {
+		right: -50px;
+		button {
+			border-bottom-right-radius: 5px;
+			border-left: none;
+		}
+	}
+	&.right {
+		left: -50px;
+		button {
+			border-bottom-left-radius: 5px;
+			border-right: none;
+		}
+	}
+	button {
+		background: transparent;
+		font-size: 1.4em;
+    	line-height: 1.8em;
+		width: 100%;
+		padding: 0;
+		text-align: center;
+		color: rgba(lighten($textPrimaryColor, 10%),.4);
+		outline: none;
+		border: none;
+		.icon {
+			display: block;
+			-ms-transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+			@include transistion(all .3s ease); 
+		}
+	}
+}
+.calapp-head {
+	position: relative;
+	.calapp-type-select {
+		width: 100%;
+		border: 1px solid lighten($textSecondaryColor, 30%);
+		padding: 3px 5px;
+		border-radius: 2px;
+		outline: none;
+	}
+}
+.appoint-select-head {
+	margin-bottom: 12px;
+}
+.appoint-list-head {
+	color: $textPrimaryColor;
+	.appoint-list-change  {
+		button {
+			width: 28px;
+			line-height: 30px;
+			margin: 2px 0;
+			padding: 0;
+			text-align: center;
+			border: 1px solid lighten($textSecondaryColor,35%);
+    		float: left;
+			background: $bgSecondaryColor;
+			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+			&:not(:first-child) {
+				border-left: none;
+			}
+		}
+	}
+	h4 {
+		font-size: 1.2em;
+		font-weight: bold;
+		opacity: .6;
+		line-height: 24px;
+		margin-top: 0;
+	}
+}
+.calapp-list-group {
+	h4 {
+		position: relative;
+		margin: 0 -15px;
+		padding: 8px 15px;
+		font-size: 1.07em;
+		.overall-count {
+			font-size: .7em;
+		}
+		&:after {
+			content: '\f110';
+			font-family: LineAwesome;
+			position: absolute;
+			right: 15px;
+			top: 7px;
+		}
+	}
+	ul.calapp-lists {
+		list-style: none;
+		margin: 0 -15px;
+		padding: 0;
+		>li {
+			position: relative;
+			background: $textInvertColor;
+			padding: 7px 15px;
+			border-bottom: 1px solid lighten($textSecondaryColor, 40%);
+			@include transistion(all .2s ease);
+			&:hover {
+				padding-left: 25px;
+				.calsapp-select-check {
+					@include transistion(all .2s ease);
+					-ms-transform: translate(0,0);
+					-webkit-transform: translate(0,0);
+					transform: translate(0,0);
+					-ms-transform: scale(1);
+					-webkit-transform: scale(1);
+					transform: scale(1);
+				}	
+			}
+			.calsapp-select-check {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 25px;
+				padding: 8px 5px;
+				-ms-transform: translate(-25px,0);
+				-webkit-transform: translate(-25px,0);
+				transform: translate(-25px,0);
+				-ms-transform: scale(0);
+				-webkit-transform: scale(0);
+				transform: scale(0);
+				color: lighten($textPrimaryColor, 30%);
+				.list-uncheck {
+					display: block;
+				}
+				.list-check {
+					display: none;
+				}
+			}
+			&.active {
+				padding-left: 25px;
+				.calsapp-select-check {
+					-ms-transform: translate(0,0);
+					-webkit-transform: translate(0,0);
+					transform: translate(0,0);
+					-ms-transform: scale(1);
+					-webkit-transform: scale(1);
+					transform: scale(1);
+					.list-uncheck {
+						display: none;
+					}
+					.list-check {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+.calapp-list-box {
+	>.calapp-detail {
+		position: relative;
+		display: block;
+		text-decoration: none;
+		color: $textPrimaryColor;
+		padding-right: 30px;
+		padding-left: 30px;
+		width: 100%;
+		@include transistion(all .2s ease);
+		>.calapp-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 25px;
+			img {
+				border-radius: 20px;
+			}
+		}
+		>.calapp-name {
+			padding-left: 5px;
+			white-space: nowrap;
+			overflow: hidden;
+			h5 {
+				font-size: .95em;
+				margin: 0;
+			}
+			h6 {
+				font-size: .75em;
+				margin: 0;
+				opacity: .65;
+			}
+		}
+		>.calapp-status {
+			position: absolute;
+			top: 2px;
+			right: 0;
+			width: 25px;
+		}
+	}
+}
+.identity-box {
+	width: 25px;
+	line-height: 19px;
+	height: 22px;
+	font-size: .75em;
+	color: $textInvertColor;
+	text-align: center;
+	position: relative;
+	border-radius: 2px;
+	overflow: hidden;
+	>span {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 50%;
+		height: 5px;
+		background: rgba(darken($bgHeadPrimary,20%), 0.40);
+	}
+}
+.applist-tab-box {
+	ul.nav {
+		display: flex;
+		border-bottom-color: lighten($textSecondaryColor, 40%);
+		margin: 0 -15px;
+		padding: 0 10px;
+		>li {
+			flex: 1;
+			a {
+				text-align: center;
+				padding: 5px 0;
+				width: 100%;
+				font-size: .8em;
+				background: none;
+				border-radius: 0;
+				border-color: transparent;
+				border-top: 3px solid transparent;
+				opacity: .75;
+				line-height: 1em;
+				h2 {
+					margin: 0;
+					border: none;
+					font-size: 1.8em;
+				}
+				&.scheduled {
+					color: $info;
+				}
+				&.waiting {
+					color: $danger;
+				}
+				&.engaged {
+					color: $warning;
+				}
+				&.completed {
+					color: $success;
+				}
+				&:hover, &:focus {
+					background: none;
+					border-top: 3px solid transparent;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+			&.active {
+				a {
+					opacity: 1;
+					background: $bgSecondaryColor;
+
+					&.scheduled {
+						border-bottom-color: $info;
+					}
+					&.waiting {
+						border-top-color: $danger;
+					}
+					&.engaged {
+						border-top-color: $warning;
+					}
+					&.completed {
+
+						border-bottom-color: $success;
+
+					}
+				}
+			}
+		}
+	}
+}
+.appoint-list-container {
+	margin-top: 5px;
+}
+ul.appointment-lists {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	>li {
+		margin-top: 0;
+	}
+}
+.appointment-list {
+	position: relative;
+	background: $bgSecondaryColor;
+	margin: 0 -15px;
+	padding: 10px 15px;
+	padding-left: 60px;
+	border-bottom: 1px solid lighten($textSecondaryColor, 40%);
+	border-top: none;
+	.identity-box-big {
+		display: block;
+		position: absolute;
+		left: 20px;
+		top: 10px;
+	}
+	h5 {
+		margin: 0;
+		margin-bottom: 2px;
+		font-weight: bold;
+	}
+	h6 {
+		margin: 0;
+    	opacity: .8;
+	}
+	.checkin-btn {
+		position: absolute;
+		bottom: 8px;
+		right: 18px;
+		font-size: .65em;
+		padding: 2px 4px;
+	}
+	.pat-short-links {
+		position: absolute;
+		top: 0;
+		right: 18px;
+		a {
+			margin-right: 3px;
+			font-size: .7em;
+			color: lighten($textSecondaryColor, 5%);
+		}
+	}
+}

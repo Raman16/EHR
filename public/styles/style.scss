@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+
+@import "colors";
+
+$largeScreen: 1400px;
+$mediumScreen: 1200px;
+$smallScreen: 991px;
+$mobileScreen: 768px;
+
+@mixin transistion($value){
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	transition: $value;
+}
+
+html, body {
+	min-height: 100%;
+	height: 100%;
+	font-family: 'PT Sans', sans-serif;
+	font-size: 14px;
+	color: $textPrimaryColor;
+	min-width: 767px;
+}
+#app {
+	height: 100%;
+}
+/****************Keyframes*******************/
+
+@import "keyframes";
+
+/*************************************************/
+
+/****************Loader Styles*******************/
+
+@import "loader";
+
+/*************************************************/
+/****************Login Page Styles*******************/
+
+@import "sign_style";
+
+/*************************************************/
+
+/****************Components*******************/
+
+@import "components";
+
+/*************************************************/
+
+.prod-container {
+	min-height: 100%;
+	height: 100%;
+	padding-left: 250px;
+	padding-top: 51px;
+	background: $bgPrimaryColor;
+	@include transistion(all .5s ease);
+	@media only screen and (max-width : $largeScreen) {
+		padding-left: 50px;
+	}
+	&.sidebar-close {
+		padding-left: 50px;
+		@include transistion(all .5s ease);
+		transition-delay: .1s;
+	}
+}
+
+
+/****************Left Side Menu*******************/
+
+@import "left_nav";
+
+/*************************************************/
+
+/****************Top Header Menu*******************/
+
+@import "top_menu";
+
+/*************************************************/
+
+/****************Top Header Menu*******************/
+
+@import "chat_menu";
+
+/*************************************************/
+
+/****************Top Header Menu*******************/
+
+@import "views";
+
+/*************************************************/
+
+/****************Profile View*******************/
+
+@import "pat_profile";
+
+/*************************************************/
+
+/********** Appointment Container Styles ************/
+
+@import "appointment";
+
+/****************************************************/
+
+/****************Profile View*******************/
+
+@import "contact_leftlist";
+
+/*************************************************/
+
+/****************Profile View*******************/
+
+@import "charting";
+
+/*************************************************/
+
+
+/**************** Calendar Styles *******************/
+
+@import "calendar";
+
+/****************************************************/
+
+/**************** Modal Styles *******************/
+
+@import "modal";
+
+/****************************************************/
+
+/**************** Modal Styles *******************/
+
+@import "flow_menu";
+
+/****************************************************/
+
+
+
+
+
+

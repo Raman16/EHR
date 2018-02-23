@@ -1,0 +1,170 @@
+.prod-log {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    background: $bgPrimaryColor;
+    .sign-up-box {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        position: relative;
+        top: calc(20vh);
+        -webkit-animation: fadeIn 1.5s ease-in-out;
+	    animation: fadeIn 1.5s ease-in-out;
+    }
+}
+.sign-up-container {
+    display: table;
+    width: 100%;
+    background: $bgSecondaryColor;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 5px 0 rgba($bgHeadPrimary,.15);
+    .sign-left-box {
+        display: table-cell;
+        position: relative;
+        width: 300px;
+        background: url(../images/log-bg-in.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+        .sign-overlay {
+            background: rgba($bgHeadPrimary,.85);
+            height: 100%;
+        }
+        .prod-logo {
+            padding: 50px 20px;
+            color: $textInvertColor;
+            text-align: center;
+            img {
+                height: 60px;
+                display: block;
+                margin: 0 auto;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+            h4, h5{
+                margin: 0;
+            }
+            h4 {
+                font-size: 1.5em;
+            }
+            h5 {
+                font-size: 1.1em;
+                opacity: .7;
+            }
+        }
+        .prod-vers {
+            position: absolute;
+            bottom: 2px;
+            right: 5px;
+            color: $textInvertColor;
+            font-size: .8em;
+            opacity: .5;
+        }
+    }
+    .sign-right-box {
+        display: table-cell;
+        padding: 20px 30px;
+        vertical-align: top;
+        h4 {
+            color: lighten($textPrimaryColor,20%);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+}
+.log-input-grp {
+    margin-bottom: 15px;
+    position: relative;
+    input {
+        background: none;
+        border: none;
+        font-size: 1.1em;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(darken($textSecondaryColor,10%),.5);
+        color: darken($textSecondaryColor,10%);
+        width: 100%;
+        outline: none;
+    }
+    .input-icon {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 1.2em;
+        color: rgba(darken($textSecondaryColor,10%),.4);
+    }
+}
+.log-btn {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    button, a {
+        position: relative;
+        background: transparent;
+        border: 2px solid lighten($bgHeadPrimary, 15%);
+        border-radius: 3px;
+        padding: 3px 40px;
+        font-size: 1.1em;
+        color: lighten($textPrimaryColor,25%);
+        text-decoration: none;
+        &.status-loading {
+            background-color: lighten($bgHeadPrimary, 15%);
+            color: transparent;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 16px;
+                height: 16px;
+                margin: auto;
+                border-radius: 50%;
+                border: 2px solid rgba($bgSecondaryColor,1);
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                -webkit-animation: loading 1s infinite ease-in-out;
+                animation: loading 1s infinite ease-in-out;
+            }
+        }
+        &.status-success {
+            background-color: lighten($bgHeadPrimary, 15%);
+            color: transparent;
+            &::before {
+                content: "\f17b";
+                font-family: FontAwesome;
+                font-size: 1.4em;
+                color: $textInvertColor;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+        &.status-error {
+            background-color: lighten($bgHeadPrimary, 15%);
+            color: transparent;
+            background: $danger;
+            border-color: darken($danger, 5%);
+            &::before {
+                content: "\f191";
+                font-family: FontAwesome;
+                font-size: 1.4em;
+                color: $textInvertColor;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+        &.disabled, &:disabled {
+            opacity:1;
+        }
+    }
+}

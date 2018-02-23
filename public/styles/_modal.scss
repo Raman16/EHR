@@ -1,0 +1,42 @@
+.modal-backdrop {
+    z-index: 10008;
+}
+.modal {
+    z-index: 10009;
+}
+.modal-content {
+    border-radius: 2px;
+    padding: 0 15px;
+    color: rgba($textPrimaryColor,.9);
+}
+.modal-header {
+    padding: 10px 0;
+    background: $bgSecondaryColor;
+    color: lighten($textPrimaryColor, 5%);
+}
+.modal-title {
+    font-weight: bold;
+    margin: 5px 0;
+    opacity: 0.7;
+}
+.modal-sub-title {
+    opacity: .6;
+    margin: 0;
+}
+.modal-header {
+    button.close {
+        color: $textSecondaryColor;
+        font-size: 1.6em;
+        margin-top: 7px;
+        margin-right: 10px;
+        position: relative;
+        z-index: 99;
+    }
+}
+.head-icon {
+    font-size: 1.2em;
+    color: $textPrimaryColor;
+    opacity: 1;
+    line-height: 1.2em;
+    margin-right: 5px;
+} 

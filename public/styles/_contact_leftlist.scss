@@ -1,0 +1,182 @@
+.appancon-list-left {
+    position: relative;
+    padding-left: 250px;
+    min-height: 100%;
+    .appancon-left-container {
+        position: absolute;;
+        top: 0;
+        left:0;
+        width: 250px;
+        bottom: 0;
+        background: darken($bgPrimaryColor, 1%);
+        color: $textPrimaryColor;
+        border-right: 1px solid lighten($textSecondaryColor, 40%);
+    }
+}
+.appancon-header {
+    padding: 0 10px;
+    background: rgba($bgSecondaryColor, .1);
+    .heading {
+        font-size: 1.6em;
+        padding-top: 10px;
+    }
+    .appancon-search {
+        margin-top: 15px;
+        .input-box {
+            padding-bottom: 10px;
+            input.input-text-box {
+                padding-left: 25px;
+                &::-webkit-input-placeholder { 
+                    color: rgba($textPrimaryColor, .6);
+                }
+                &::-moz-placeholder { 
+                    color: rgba($textPrimaryColor, .6);
+                }
+                &:-ms-input-placeholder { 
+                    color: rgba($textPrimaryColor, .6);
+                }
+                &:-moz-placeholder {
+                    color: rgba($textPrimaryColor, .6);
+                }
+            }
+            &:before {
+                content: '\f2eb';
+                font-family: LineAwesome;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+            }
+        }
+    }
+}
+.appancon-tab {
+    ul.nav-tabs {
+        border-color: 1px solid lighten($textSecondaryColor, 30%);
+        display: -webkit-flex;
+        display: flex;
+        >li {
+            -webkit-flex: 1;
+            flex: 1;
+            text-align: center;
+            >a {
+                padding: 4px 15px 8px;
+                border: none;
+                color: rgba(lighten($textPrimaryColor,5%),.6);
+                border-radius: 0;
+                border-bottom: 3px solid transparent;
+                outline: none;
+                &:hover {
+                    background: transparent;
+                    color: lighten($textPrimaryColor, 25%);
+                }
+                &:hover, &:focus, &:active {
+                    border: none;
+                    border-bottom: 3px solid transparent;
+                }
+            }
+            &.active {
+                >a {
+                    background: transparent;
+                    border-color: lighten($textPrimaryColor, 25%);
+                    color:lighten($textPrimaryColor, 25%);
+                }
+            }
+        }
+    }
+}
+
+.cont-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    >li {
+        &:not(:last-child) {
+            border-bottom: 1px solid  lighten($textSecondaryColor, 40%);
+        }
+        >a {
+            position: relative;
+            display: block;
+            padding: 8px 5px;
+            text-decoration: none;
+            color: inherit;
+            .app-name {
+                font-size: 1em;
+            }
+            .app-reason {
+                font-size: .8em;
+                opacity: .6;
+            }
+            .app-about {
+                font-size: .8em;
+                opacity: .6;
+            }
+            .app-status {
+                position: absolute;
+                top: 10px;
+                right: 5px;
+                font-size: .75em;
+                display: none;
+                font-weight: bold;
+                padding-left: 10px;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 2px;
+                    top: 5px;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 3px;
+                }
+                &.waiting {
+                    display: block;
+                    color: $danger;
+                    &:before {
+                        background: $danger;
+                    }
+                }
+                &.intake {
+                    display: block;
+                    color: $warning;
+                    &:before {
+                        background: $warning;
+                    }
+                }
+                &.checkedout {
+                    display: block;
+                    color: $success;
+                    &:before {
+                        background: $success;
+                    }
+                }
+            }
+        }
+        &.active {
+            border-color: lighten($textSecondaryColor, 35%);
+            >a {
+                background: $bgSecondaryColor;
+                width: calc(100% + 1px);
+                border-right: 1px solid $bgSecondaryColor;
+            }
+        }
+    }
+    &.t-app {
+        >li {
+            >a {
+                padding-left: 45px;
+                .app-time {
+                    position: absolute;
+                    top: 8px;
+                    left: 5px;
+                    width: 35px;
+                    height: 35px;
+                    color: $textPrimaryColor;
+                    padding: 4px 2px;
+                    border-radius: 2px;
+                    font-size: .85em;
+                    text-align: center;
+                    line-height: 12px;
+                }
+            }
+        }
+    }
+}

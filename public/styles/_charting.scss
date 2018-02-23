@@ -1,0 +1,795 @@
+.pat-charting{
+    .charting-header {
+        padding: 15px 20px;
+        .btn-chart {
+            height: auto;
+            padding: 8px 15px 7px 30px;
+            font-size: .9em;
+            outline: none;
+            position: relative;
+            background: transparent;
+            border-color: lighten($textSecondaryColor,20%);
+            margin-right: 5px;
+            .icon {
+                position: absolute;
+                left: 7px;
+                top: 4px;
+                font-size: 1.4em;
+            }
+        }
+        .check-button {
+            position: relative;
+            display: inline-block;
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 99;
+                cursor: pointer;
+                &:checked {
+                    +.btn-chart {
+                        .shrink {
+                            opacity: 1;
+                        }
+                        .expand {
+                            opacity: 0;
+                        }
+                    }
+                }
+            }
+            .btn-chart {
+                display: block;
+                border: 1px solid lighten($textSecondaryColor,20%);
+                margin-right: 0;
+                .shrink {
+                    opacity: 0;
+                    @include transistion(all .3s ease);
+                }
+                .expand {
+                    opacity: 1;
+                    @include transistion(all .3s ease);
+                }
+            }
+        }
+    }
+    .charting-timeline {
+        ul.charting-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            padding-left: 130px;
+            padding-right: 10px;
+            position: relative;
+            li.chart {
+                position: relative;
+                margin-bottom: 15px;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                border-radius: 4px;
+                background: lighten($textSecondaryColor,30%);
+                left: 96px;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+.chart {
+    .chart-left {
+        position: absolute;
+        left: -110px;
+        top: 0;
+        box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+        .c-day {
+            border: 1px solid lighten($textSecondaryColor,40%);
+            background: $bgSecondaryColor;
+            width: 100px;
+            display: table;
+            z-index: 99;
+            position: relative;
+            .cn-day {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                width: 30px;
+                padding: 2px 5px;
+                border-right: 1px solid lighten($textSecondaryColor,40%);
+                .d-day {
+                    font-size: 1.2em;
+                    color: lighten($textPrimaryColor, 25%);
+                    font-weight: bold;
+                }
+            }
+            .cd-day {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                padding: 2px 5px;
+                .w-day {
+                    font-size: 1.1em;
+                    color: lighten($textPrimaryColor, 25%);
+                    font-weight: bold;
+                }
+                .m-day {
+                    font-size: .8em;
+                    opacity: .8;
+                }
+            }
+            &.c-today {
+                display: block;
+                padding: 2px 5px;
+                .day {
+                    text-align: center;
+                    font-size: 1em;
+                    color: lighten($textPrimaryColor, 25%);
+                    font-weight: bold;
+                }
+                .date {
+                    text-align: center;
+                    font-size: .8em;
+                    opacity: .8;
+                }
+            }
+        }
+        button.c-add-btn {
+            border: 1px solid lighten($textSecondaryColor,40%);
+            background: $bgSecondaryColor;
+            width: 100px;
+            display: block;
+            font-size: 0.8em;
+            margin-top: -1px;
+            color: lighten($textPrimaryColor, 25%);
+            font-weight: bold;
+            outline: none;
+            z-index: 99;
+            position: relative;
+            .icon {
+                margin-left: 5px;
+            }
+            &:hover {
+                &+.c-add-dropdown {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+        .c-add-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 140px;
+            background: $bgSecondaryColor;
+            border: 1px solid lighten($textSecondaryColor,40%);
+            border-radius: 2px;
+            z-index: 999;
+            box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1, 0);
+            transform-origin: 0 0;
+            @include transistion(all .2s ease-in-out);
+            .c-add-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    a {
+                        position: relative;
+                        display: block;
+                        padding: 4px 10px;
+                        text-decoration: none;
+                        color: inherit;
+                        font-size: .9em;
+                        color: rgba($textPrimaryColor, .7);
+                        .icon {
+                            color: lighten($textPrimaryColor, 25%);
+                            @include transistion(all .2s ease-in-out);
+                        }
+                        &:hover {
+                            background: $bgPrimaryColor;
+                            .icon {
+                                opacity: 0;
+                            }
+                            &:before {
+                                opacity: 1;
+                            }
+                        }
+                        &:before {
+                            content: '\f2c2';
+                            font-family: LineAwesome;
+                            position: absolute;
+                            color: lighten($textPrimaryColor, 25%);
+                            left: 10px;
+                            top: 3px;
+                            opacity: 0;
+                            @include transistion(all .2s ease-in-out);
+                        }
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            right: 5px;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            width: 4px;
+                            height: 4px;
+                            border-radius: 3px;
+                            background: transparent;
+                        }
+                    }
+                    &.done {
+                        a {
+                            &:before {
+                                content: '\f1c1';
+                            }
+                            &:after {
+                                background: $success;
+                            }
+                        }
+                    }
+                    &.waiting {
+                        a:after {
+                            background: $danger;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                opacity: 1;
+                visibility: visible;
+                transform: scale(1, 1);
+            }
+        }
+    }
+    .chart-right { 
+        position: relative;
+        padding: 0 10px;
+        .c-header {
+            position: relative;
+            padding: 10px 15px;
+            border: 1px solid lighten($textSecondaryColor,40%);
+            border-radius: 2px;
+            background: $bgSecondaryColor;
+            box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.07);
+            z-index: 99;
+            .cv-with {
+                font-size: 1em;
+                color: $textPrimaryColor;
+                .w-doc {
+                    color: lighten($textPrimaryColor, 25%);
+                    font-weight: bold;
+                }
+            }
+            .cv-at {
+                font-size: .85em;
+                opacity: .6;
+            }
+            .cv-share {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: .85em;
+                color: $textSecondaryColor;
+                >a {
+                    text-decoration: none;
+                    color: inherit;
+                    display: inline-block;
+                    padding: 2px 4px;
+                }
+            }
+        }
+        .c-content {
+            .cc-container {
+                position: relative;
+                padding: 10px 15px;
+                border: 1px solid lighten($textSecondaryColor,40%);
+                border-radius: 2px;
+                background: $bgSecondaryColor;
+                box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.07);
+                margin-top: -45px;
+                @include transistion(all .3s ease-in-out);
+                .cc-left {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .chart-edit {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                .cs-container {
+                    transform: scale(1, 0);
+                    height: 0px;
+                    @include transistion(all .2s ease-in-out);
+                    >* {
+                        opacity: 0;
+                        visibility: hidden;
+                        @include transistion(all .2s ease-in-out);
+                    }
+                }
+                &.c-add {
+                    background: darken($bgPrimaryColor, 2%);
+                }
+                @for $i from 1 through 9 {
+                    &:nth-child(#{$i}){
+                        z-index: 10 - $i;
+                        @if($i <= 2){
+                            margin-left: 5px * $i;
+                            margin-right: 5px * $i;
+                        }
+                        @else {
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                    }
+                }
+            }
+        }
+        button.chart-expand {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            border: 1px solid lighten($textSecondaryColor, 40%);
+            background: $bgSecondaryColor;
+            bottom: -1px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            line-height: 18px;
+            text-align: center;
+            outline: none;
+            z-index: 99;
+            box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+            @include transistion(all .2s ease-in-out);
+            &.status-loading {
+                color: transparent;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 12px;
+                    height: 12px;
+                    margin: auto;
+                    border-radius: 50%;
+                    border: 2px solid $textSecondaryColor;
+                    border-top-color: transparent;
+                    border-bottom-color: transparent;
+                    -webkit-animation: loading 1s infinite ease-in-out;
+                    animation: loading 1s infinite ease-in-out;
+                }
+            }
+        }
+    }
+    &:after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        left: -30px;
+        top: 20px;
+        background: lighten($textSecondaryColor,30%);
+        z-index: 1;
+    }
+    &:last-child:after {
+        height: calc(100% - 20px);
+    }
+    &.expand {
+        .chart-right {
+            .c-content  {
+                .cc-container {
+                    margin-top: 1px;
+                    .cc-left {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .chart-edit {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .cs-container {
+                        transform: scale(1, 1);
+                        height: auto;
+                        >* {
+                            opacity: 1;
+                            visibility: visible;
+                            @include transistion(all .2s ease-in-out);
+                        }
+                    }
+                    @for $i from 1 through 9 {
+                        &:nth-child(#{$i}){
+                            margin-left: 0;
+                            margin-right: 0;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                    &.edit {
+                        margin: 10px -10px;
+                        border: 1px solid darken($bgPrimaryColor, 25%);
+                        box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.1);
+                    }
+                }
+            }
+            button.chart-expand {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+.cc-container {
+    .cc-left {
+        position: absolute;
+        left: -100px;
+        top: 0;
+        width: 80px;
+        z-index: 9;
+        @include transistion(all .2s ease-in-out);
+        .cc-icon {
+            float: right;
+            margin-left: 5px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.4em;
+            border-radius: 50%;
+            color: lighten($textPrimaryColor, 25%);
+            text-align: center;
+            border: 1px solid lighten($textSecondaryColor, 40%);
+            background: $bgSecondaryColor;
+            box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+        }
+        .cc-time {
+            line-height: 1em;
+            font-size: 0.8em;
+            padding: 8px 0;
+            opacity: 0.6;
+        }
+    }
+    .charts-header {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: lighten($textPrimaryColor, 25%);
+        margin-bottom: 10px;        
+    }
+    .cc-share {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: .75em;
+        color: $textSecondaryColor;
+        >a {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+            padding: 2px 4px;
+        }
+    }
+    .chart-edit {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border: 1px solid lighten($textSecondaryColor, 40%);
+        background: $bgSecondaryColor;
+        border-radius: 50%;
+        top: 10px;
+        right: -13px;
+        line-height: 24px;
+        text-align: center;
+        opacity: 0;
+        outline: none;
+        box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+        @include transistion(all .2s ease-in-out);
+        .edit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 1em;
+            @include transistion(all .2s ease-in-out);
+        }
+        .cancel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            font-size: 1em;
+            @include transistion(all .2s ease-in-out);
+        }
+    }
+    .cs-container {
+        @include transistion(all .2s ease-in-out);
+        .cs-header {
+            font-size: .9em;
+            opacity: .7;
+        }
+        .cs-content {
+            position: relative;
+            padding: 10px 15px;
+            border-radius: 2px;
+            background: $bgSecondaryColor; 
+            margin-bottom: 5px;   
+        }
+    }
+    &.c-add  {
+        text-align: center;
+        ul.add-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            >li {
+                float: left;
+                margin-right: 5px;
+                >a {
+                    position: relative;
+                    display: block;
+                    width: 125px;
+                    padding: 10px;
+                    background: $bgSecondaryColor;
+                    border-radius: 2px;
+                    border: 1px solid lighten($textSecondaryColor,40%);
+                    text-decoration: none;
+                    color: inherit;
+                    text-align: center;
+                    margin: 10px 0;
+                    .add-icon {
+                        font-size: 2em;
+                        color: lighten($textPrimaryColor, 25%);
+                        line-height: 1em;
+                        position: relative;
+                        .icon {
+                            @include transistion(all .2s ease-in-out);
+                        }
+                        &:after {
+                            content: '\f2c2';
+                            font-family: LineAwesome;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            text-align: center;
+                            opacity: 0;
+                            @include transistion(all .2s ease-in-out);
+                        }
+                    }
+                    .add-subject {
+                        font-size: .9em;
+                        color: rgba($textPrimaryColor, .6);
+                    }
+                    .add-status {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        text-align: center;
+                        background: transparent;
+                        line-height: 15px;
+                        display: none;
+                        &:before {
+                            content: '';
+                            font-family: LineAwesome;
+                            font-size: 1em;
+                        }
+                        &.done {
+                            display: block;
+                            color: $success;
+                            &:before {
+                                content: '\f17c';
+                            }
+                        }
+                        &.waiting {
+                            display: block;
+                            color: $danger;
+                            &:before {
+                                content: '\f1ce';
+                            }
+                        }
+                    }
+                    &:hover {
+                        .add-icon {
+                            .icon{
+                                opacity: 0;
+                            }
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                &.done {
+                    a {
+                        .add-icon {
+                            &:after {
+                                content: '\f1c1';
+                            }
+                        }
+                    }
+                }
+            }
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+    }
+    &.c-add1 {
+        text-align: center;
+        padding: 0 !important;
+        ul.add-list-split {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            margin-bottom: -6px;
+            >li {
+                float: left;
+                margin-left: -1px;
+                >a {
+                    position: relative;
+                    display: table;
+                    width: 150px;
+                    padding: 10px;
+                    background: $bgSecondaryColor;
+                    border: 1px solid lighten($textSecondaryColor,40%);
+                    text-decoration: none;
+                    color: inherit;
+                    text-align: center;
+                    .add-icon {
+                        font-size: 1.5em;
+                        color: lighten($textPrimaryColor, 25%);
+                        line-height: 1em;
+                        display: table-cell;
+                        vertical-align: middle;
+                        text-align: right;
+                        padding-right: 5px;
+                        position: relative;
+                        .icon {
+                            @include transistion(all .2s ease-in-out);
+                        }
+                        &:after {
+                            content: '\f2c2';
+                            font-family: LineAwesome;
+                            position: absolute;
+                            left: 0;
+                            right: 5px;
+                            top: 0;
+                            text-align: right;
+                            opacity: 0;
+                            @include transistion(all .2s ease-in-out);
+                        }
+                    }
+                    .add-subject {
+                        display: table-cell;
+                        vertical-align: middle;
+                        text-align: left;
+                        font-size: .9em;
+                        color: rgba($textPrimaryColor, .6);
+                    }
+                    .add-status {
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        text-align: center;
+                        background: transparent;
+                        line-height: 15px;
+                        display: none;
+                        &:before {
+                            content: '';
+                            font-family: LineAwesome;
+                            font-size: 1em;
+                        }
+                        &.done {
+                            display: block;
+                            color: $success;
+                            &:before {
+                                content: '\f17c';
+                            }
+                        }
+                        &.waiting {
+                            display: block;
+                            color: $danger;
+                            &:before {
+                                content: '\f1ce';
+                            }
+                        }
+                    }
+                    &:hover {
+                        .add-icon {
+                            .icon{
+                                opacity: 0;
+                            }
+                            &:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                &.done {
+                    a {
+                        .add-icon {
+                            &:after {
+                                content: '\f1c1';
+                            }
+                        }
+                    }
+                }
+            }
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+    }
+    &.edit {
+        .cc-left {
+            position: absolute;
+            left: -90px;
+        }
+        .chart-edit {
+            opacity: 1;
+        }
+        .chart-edit {
+            .edit {
+                opacity: 0;
+            }
+            .cancel {
+                opacity: 1;
+            }
+        }
+    }
+    &:hover {
+        .chart-edit {
+            opacity: 1;
+        }
+    }
+}
+
+.cs-content {
+    ul.cs-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            padding: 2px 5px;
+            border-left: 2px solid $bgHeadSecondary;
+            background: lighten($bgPrimaryColor, 1%);
+            margin-bottom: 2px;
+        }
+    }
+    .table {
+        margin: 0;
+        >thead>tr>th {
+            padding: 5px;
+            color: rgba($textPrimaryColor, .6);
+            border-bottom-color: lighten($textSecondaryColor,40%);
+        }
+        >tbody>tr>td {
+            padding: 5px;
+            color: $textPrimaryColor;
+            border-top: 0px;
+        }
+    }
+}

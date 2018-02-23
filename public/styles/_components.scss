@@ -1,0 +1,884 @@
+.btn {
+    position: relative;
+    border-radius: 2px;
+    background: lighten($bgHeadSecondary,45%);
+    padding: 4px 12px;
+    color: $textPrimaryColor;
+    @include transistion(all .3s linear);
+    &.btn-lg {
+        line-height: 1.2;
+    }
+    &.btn-sm {
+        line-height: 1.2;
+        padding: 4px 8px;
+    }
+    &.btn-xs {
+        line-height: 1.2;
+        padding: 4px 8px;
+    }
+    &.btn-default {
+        border-color: darken($bgPrimaryColor, 10%);
+    }
+    &.btn-success {
+        background: $success;
+        border-color: darken($success, 5%);
+        color: $textInvertColor;
+    }
+    &.btn-warning {
+        background: $warning;
+        border-color: darken($warning, 5%);
+        color: $textInvertColor;
+    }
+    &.btn-info {
+        background: $info;
+        border-color: darken($info, 5%);
+        color: $textInvertColor;
+    }
+    &.btn-danger {
+        background: $danger;
+        border-color: darken($danger, 5%);
+        color: $textInvertColor;
+    }
+    &.btn-success-outline {
+        background: $bgSecondaryColor;
+        border-color: darken($success, 5%);
+        color: $success;
+    }
+    &.btn-warning-outline {
+        background: $bgSecondaryColor;
+        border-color: darken($warning, 5%);
+        color: $warning;
+    }
+    &.btn-info-outline {
+        background: $bgSecondaryColor;
+        border-color: darken($info, 5%);
+        color: $info;
+    }
+    &.btn-danger-outline {
+        background: $bgSecondaryColor;
+        border-color: darken($danger, 5%);
+        color: $danger;
+    }
+    &.status-loading {
+        color: transparent;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border-radius: 50%;
+            border: 2px solid rgba($bgSecondaryColor,1);
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            -webkit-animation: loading 1s infinite ease-in-out;
+	        animation: loading 1s infinite ease-in-out;
+        }
+    }
+    &.status-success {
+        color: transparent;
+        &::before {
+            content: "\f17b";
+            font-family: LineAwesome;
+            font-size: 1.4em;
+            color: $textInvertColor;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+    &.status-error {
+        color: transparent;
+        background: $danger;
+        border-color: darken($danger, 5%);
+        &::before {
+            content: "\f191";
+            font-family: LineAwesome;
+            font-size: 1.4em;
+            color: $textInvertColor;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+    &.disabled, &:disabled {
+        opacity:1;
+    }
+    &:focus, &:active, &:active:focus {
+        outline: none;
+    }
+}
+.input-box {
+    position: relative;
+    padding-bottom: 18px;
+    label {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 2px;
+        color: rgba($textPrimaryColor,.7);
+        top: 14px;
+        left: 5px;
+        z-index: 10;
+        font-weight: 400;
+        @include transistion(all .2s ease);
+    }
+    input.input-text-box {
+        position: relative;
+        width: 100%;
+        padding: 5px;
+        border-radius: 3px;
+        padding-right: 15px;
+        border: 1px solid lighten($textSecondaryColor, 30%);
+        outline: none;
+        font-size: .9em;
+        background: transparent;
+        z-index: 11;
+        @include transistion(all .2s ease);
+        &:focus + label {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            font-size: .85em;
+            color: lighten($textPrimaryColor, 30%);
+        }
+    }
+    textarea.input-text-box {
+        position: relative;
+        width: 100%;
+        padding: 6px 5px;
+        border-radius: 3px;
+        padding-right: 15px;
+        border: 1px solid lighten($textSecondaryColor, 30%);
+        outline: none;
+        font-size: .9em;
+        background: transparent;
+        resize: none;
+        z-index: 11;
+        @include transistion(all .2s ease);
+        &:focus + label {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            font-size: .85em;
+            color: lighten($textPrimaryColor, 30%);
+        }
+    }
+    .input-status {
+        position: absolute;
+        display: none;
+        bottom: 1px;
+        left: 0;
+        font-size: .8em;
+    }
+    .verify-status {
+        position: absolute;
+        display: none;
+        top: 7px;
+        right: 0;
+        font-size: .8em;
+    }
+    .input-icon {
+        position: absolute;
+        top: 24px;
+        right: 10px;
+        font-size: 1.3em;
+        color: rgba(darken($textSecondaryColor,10%),.4);
+    }
+    &.check-input-box, &.radio-input-box {
+        label {
+            top: 0;
+            left: 0;
+            opacity: 1;
+        }
+    }
+    &.active {
+        label {
+            opacity: 1;
+            color: rgba($textPrimaryColor, .5);
+        }
+        &:after {
+            width: 10px;
+            background: transparent;
+        }
+    }
+    &.focus {
+        input.input-text-box {
+            border-color: lighten($textPrimaryColor, 30%);
+        }
+        textarea.input-text-box {
+            border-color: lighten($textPrimaryColor, 30%);
+        }
+        label {
+            top: 0;
+            left: 0;
+            opacity: 1;
+            color: lighten($textPrimaryColor, 30%);
+        }
+    }
+    &.success {
+        label {
+            color: $success !important;
+        }
+        &::after {
+            content: "\f00c";
+            position: absolute;
+            right: -5px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 8px;
+            line-height: 12px;
+            font-family: "FontAwesome";
+            color: $bgSecondaryColor;
+            background: $success;
+            z-index: 99;
+        }
+        .input-status {
+            display: block;
+            color: $success;
+        }
+    }
+    &.info {
+        label {
+            color: $info !important;
+        }
+        &::after {
+            content: "\f129";
+            position: absolute;
+            right: -5px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 8px;
+            line-height: 12px;
+            font-family: "FontAwesome";
+            color: $bgSecondaryColor;
+            background: $info;
+            z-index: 99;
+        }
+        .input-status {
+            display: block;
+            color: $info;
+        }
+    }
+    &.warning {
+        label {
+            color: $warning !important;
+        }
+        &::after {
+            content: "\f071";
+            position: absolute;
+            right: -5px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 8px;
+            line-height: 12px;
+            font-family: "FontAwesome";
+            color: $bgSecondaryColor;
+            background: $warning;
+            z-index: 99;
+        }
+        .input-status {
+            display: block;
+            color: $warning;
+        }
+    }
+    &.danger {
+        label {
+            color: $danger !important;
+        }
+        &::after {
+            content: "\f00d";
+            position: absolute;
+            right: -5px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 8px;
+            line-height: 12px;
+            font-family: "FontAwesome";
+            color: $bgSecondaryColor;
+            background: $danger;
+            z-index: 99;
+        }
+        .input-status {
+            display: block;
+            color: $danger;
+        }
+    }
+    &.verify-success {
+        .verify-status {
+            display: block;
+            color: $success;
+        }
+    }
+    &.verify-danger {
+        .verify-status {
+            display: block;
+            color: $danger;
+        }
+    }
+}
+.input-box-noerr {
+    padding-top: 0;
+    padding-bottom: 2px;
+    &:after {
+        bottom: 1px;
+    }
+    span.icon {
+        top: 2px;
+        opacity: .8;
+    }
+}
+
+.sq-input-box {
+    .input-text-box {
+        width: 100%;
+        border: 1px solid lighten($textSecondaryColor, 30%);
+        border-radius: 2px;
+        padding: 5px 15px;
+        font-size: 0.9em;
+        background: transparent;
+        outline: none;
+    }
+}
+
+.radio-box{
+	position: relative;
+    display: inline-block;
+    padding-left: 20px;
+	margin-right: 10px;
+	line-height: 32px;
+	input[type="radio"] {
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		top: 8px;
+		left: 1px;
+		opacity: 0;
+		z-index: 5;
+		cursor: pointer;
+		margin: 0;
+		&:checked {
+			+span:before {
+				background: lighten($textPrimaryColor, 25%);
+			}
+		}
+	}
+	span {
+		position: absolute;
+		left: 3px;
+		top: 10px;
+		width: 12px;
+		height: 12px;
+		border-radius: 1px;
+		border: 1px solid lighten($textPrimaryColor, 25%);
+		z-index: 4;
+		&:before {
+			content: '';
+			width: 6px;
+			height: 6px;
+			position: absolute;
+			left: 2px;
+    		top: 2px;
+			border-radius: 1px;
+			background: transparent;;
+		}
+	}
+}
+.check-box {
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    input[type="checkbox"] {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        z-index: 101;
+        cursor: pointer;
+        & + .check-icon>.icon {
+            position: absolute;
+            top: 2px;
+            left: 0;
+            font-size: 14px;
+            z-index: 100;
+            &.uncheck {
+                opacity: 1;
+            }
+            &.check {
+                opacity: 0;
+                color: lighten($textPrimaryColor, 25%);
+            }
+        }
+        &:checked {
+            & + .check-icon>.icon {
+                position: absolute;
+                left: 0;
+                &.uncheck {
+                    opacity: 0;
+                }
+                &.check {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.short-edit-menu {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    float: right;
+    .short-edit-btns {
+        position: absolute;
+        right: 0;
+        top: 0;
+        >a {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            font-size: .8em;
+            color: $textSecondaryColor;
+            text-align: center;
+            border: 1px solid lighten($textSecondaryColor, 30%);
+            background: $bgSecondaryColor;
+            border-radius: 2px;
+            margin: 2px 0;
+            &.menu-btn {
+                opacity: 0;
+                margin-right: -22px;
+                @include transistion(all .2s ease); 
+            }
+        }
+        &:hover {
+            >a {
+                &.menu-btn {
+                    opacity: 1;
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}
+
+.badge {
+    padding: 2px 7px;
+    font-size: .7em;
+    border-radius: 3px;
+    &.success {
+        background: $success;
+        border-color: darken($success,5%);
+    }
+    &.info {
+        background: $info;
+        border-color: darken($info,5%);
+    }
+    &.warning {
+        background: $warning;
+        border-color: darken($warning,5%);
+    }
+    &.danger {
+        background: $danger;
+        border-color: darken($danger,5%);
+    }
+}
+
+.check-vertical-list {
+    list-style: none;
+    margin-top: 8px;
+    padding-left: 8px;
+    color: rgba($textPrimaryColor,.9);
+}
+.table-body-noborder {
+    width: 100%;
+    >thead>tr>th {
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+    >tbody>tr>td {
+        border: none;
+    }
+}
+.alert {
+    border-radius: 2px;
+    margin: 2px 0;
+    padding: 15px;
+    &.iconed {
+        padding-left: 50px;
+        .icon {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 1.6em;
+            border-radius: 1px;
+            text-align: center;
+        }
+        &.alert-success {
+            .icon {
+                color: darken($success,3%);
+            }
+        }
+        &.alert-info {
+            .icon {
+                color: darken($info,3%);
+            }
+        }
+        &.alert-warning {
+            .icon {
+                color: darken($warning,3%);
+            }
+        }
+        &.alert-danger {
+            .icon {
+                color: darken($danger,3%);
+            }
+        }
+    }
+    &.alert-fixed {
+        position: fixed;
+        width: 100%;
+        max-width: 300px;
+        max-height: 100px;
+        box-shadow: 0 0 4px 0 rgba(darken($bgHeadPrimary,20%),.2);
+        z-index: 19999;
+        &.top {
+            top: 10px;
+            &.right {
+                right: 10px;
+            }
+            &.left {
+                left: 10px;
+            }
+            &.center {
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+        &.bottom {
+            bottom: 10px;
+            &.right {
+                right: 10px;
+            }
+            &.left {
+                left: 10px;
+            }
+            &.center {
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+    }
+    &.alert-success {
+        color: darken($success,20%);
+        background-color: lighten($success,47%);
+        border-color: lighten($success,33%);
+    }
+    &.alert-info {
+        color: darken($info,20%);
+        background-color: lighten($info,47%);
+        border-color: lighten($info,33%);
+    }
+    &.alert-warning {
+        color: darken($warning,20%);
+        background-color: lighten($warning,47%);
+        border-color: lighten($warning,33%);
+    }
+    &.alert-danger {
+        color: darken($danger,20%);
+        background-color: lighten($danger,47%);
+        border-color: lighten($danger,33%);
+    }
+    &.alert-solid-bordered {
+        border-width: 0;
+        border-top-width: 5px;
+        &.alert-success {
+            border-color: darken($success,3%);
+        }
+        &.alert-info {
+            border-color: darken($info,3%);
+        }
+        &.alert-warning {
+            border-color: darken($warning,3%);
+        }
+        &.alert-danger {
+            border-color: darken($danger,3%);
+        }
+    }
+    &.alert-bordered {
+        background-color: $bgSecondaryColor;
+        border-width: 0;
+        border-top-width: 5px;
+        &.alert-success {
+            border-color: darken($success,3%);
+        }
+        &.alert-info {
+            border-color: darken($info,3%);
+        }
+        &.alert-warning {
+            border-color: darken($warning,3%);
+        }
+        &.alert-danger {
+            border-color: darken($danger,3%);
+        }
+    }
+    button.close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+}
+
+.checkBox {
+    position: relative;
+    display: block;
+    >input.check-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        z-index: 99;
+        cursor: pointer;
+        &:checked {
+            +.check-square {
+                background: $bgHeadSecondary;
+                border-color: $bgHeadSecondary;
+                >.icon {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    >.check-square {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        margin: 0 10px;
+        background: transparent;
+        border: 1px solid lighten($textSecondaryColor, 20%);
+        line-height: 14px;
+        text-align: center;
+        color: $textInvertColor;
+        >.icon {
+            opacity: 0;
+            font-size: 14px;
+        }
+    }
+}
+
+.med-table {
+	font-size: .9em;
+	margin-top: 5px;
+    margin-bottom: 5px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+    >thead>tr, >tbody>tr {
+        >th, >td { 
+            position: relative;
+            .t-edit {
+                width: 26px;
+                height: 26px;
+                font-size: 16px;
+                border: none;
+                background: transparent;
+                line-height: 24px;
+                text-align: center;
+                outline: none;  
+                box-shadow: none;
+                @include transistion(all .2s ease-in-out);
+                &:hover {
+                    & + ul.t-option {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            ul.t-option {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 80px;
+                background: $bgSecondaryColor;
+                border-radius: 3px;
+                border: 1px solid darken($bgPrimaryColor, 5%);
+                opacity: 0;
+                visibility: hidden;
+                box-shadow: 0 1px 3px 0 rgba(darken($bgHeadPrimary,15%),.07);
+                z-index: 1001;
+                >li {
+                    position: relative;
+                    border-bottom: 1px solid darken($bgPrimaryColor, 5%);
+                    >button {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        padding: 3px 5px;
+                        font-size: .9em;
+                        width: 100%;
+                        text-align: left;
+                        .icon {
+                            margin-right: 8px;
+                        }
+                    }
+                    >.confirmation {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        display: flex;
+                        display: -webkit-flex;
+                        background: $bgSecondaryColor;
+                        opacity: 0;
+                        visibility: hidden;
+                        >button {
+                            flex: 1;
+                            -webkit-flex:1;
+                            font-size: 1.1em;
+                            background: none;
+                            border: none;
+                            outline: none;
+                            &.confirm-yes {
+                                color: $success;
+                            }
+                            &.confirm-no {
+                                color: $danger;
+                            }
+                            &:not(:last-child) {
+                                border-right: 1px solid darken($bgPrimaryColor, 5%);
+                            }
+                        }
+                    }
+                    &.confirm {
+                        >.confirmation {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+                &:hover {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+	>thead>tr>th {
+		border-bottom: 1px solid lighten($textSecondaryColor, 32%);
+        color: lighten($textPrimaryColor,15%);
+	}
+	>tbody>tr>td {
+		border-top: 1px solid lighten($textSecondaryColor, 35%);
+	}
+	h5, h6 {
+		margin: 0;
+	}
+	h6 {
+		opacity: .6;
+	}
+    &.spaced {
+        >thead, >tbody {
+            >tr {
+                >th, >td {
+                    padding: 15px 5px;
+                }
+                >th {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    &.content-middled {
+        >thead, >tbody {
+            >tr {
+                >th, >td {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+.med-table {
+    .edit-mode {
+        &.on-editor {
+            display: none;
+        }
+        &.editor {
+            >td {
+                background: $bgPrimaryColor;
+                padding: 2px;
+                >.editor-box {
+                    margin-left: -10px;
+                    margin-right: -10px;
+                    padding: 10px 15px;
+                    padding-top: 5px;
+                    position: relative;
+                    background: $bgSecondaryColor;
+                    border: 1px solid darken($bgPrimaryColor, 5%);
+	                box-shadow: 0 1px 3px 0 rgba(darken($bgHeadPrimary,15%),.07);
+                    .med-table>tbody>tr>td {
+                        border: 0;
+                    }
+                    .t-save, .t-cancel {
+                        width: 26px;
+                        height: 26px;
+                        border: 1px solid lighten($textSecondaryColor, 40%);
+                        background: $bgSecondaryColor;
+                        border-radius: 50%;
+                        line-height: 22px;
+                        text-align: center;
+                        color:$textInvertColor;
+                        outline: none;  
+                        box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+                        @include transistion(all .2s ease-in-out);
+                    }
+                    .t-save {
+                        background: $success;
+                    }
+                    .t-cancel {
+                        background: $danger;
+                    }
+                }
+            }
+        }
+    }
+}

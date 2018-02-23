@@ -1,0 +1,71 @@
+.page_loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $bgPrimaryColor;
+	z-index: 99999;
+}
+.loading-spiner {
+	width: 65px;
+	height: 65px;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+.bounce1, .bounce2 {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: $bgHeadSecondary;
+	opacity: 0.6;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	-webkit-animation: load-bounce 2.0s infinite ease-in-out;
+	animation: load-bounce 2.0s infinite ease-in-out;
+	}
+
+.bounce2 {
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+.loading-brand {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	max-width: 300px;
+	margin: auto;
+	margin-top: 10%;
+	text-align: center;
+	.loading-brand-logo {
+		font-size: 1.5em;
+		color: $bgHeadPrimary;
+	}
+	.loading-bar {
+		width: 150px;
+		height: 2px;
+		border-radius: 1px;
+		background: lighten($textSecondaryColor,20%);
+		margin: 5px auto;
+		overflow: hidden;
+		.loader-bar {
+			width: 80%;
+			height: 100%;
+			background: lighten($bgHeadPrimary,20%);
+			-webkit-animation: load-swing 1.5s infinite ease-in-out;
+			animation: load-swing 1.5s infinite ease-in-out;
+		}
+	}
+}

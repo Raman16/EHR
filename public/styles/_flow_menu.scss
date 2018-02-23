@@ -1,0 +1,268 @@
+
+.set-flow-menu {
+    position: relative;
+    padding-left: 300px;
+    .flow-menu-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 300px;
+    }
+}
+ul.flow-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 40px 20px;
+    >li {
+        >a {
+            position: relative;
+            display: block;
+            padding:8px 10px;
+            padding-left: 35px;
+            color: inherit;
+            font-size: 1em;
+            text-decoration: none;
+            .icon {
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                margin-right: 10px;
+                font-size: 1.4em;
+            }
+        }
+    }
+}
+
+
+.sett-list {
+    padding: 0 20px;
+    margin-top: 5%;
+}
+.sett-heading {
+    padding: 15px;
+    position: relative;
+    padding-left: 50px;
+    padding-right: 100px;
+    background: darken($bgPrimaryColor,2%);
+    color: lighten($textPrimaryColor, 25%);
+    border-radius: 2px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: 1px solid lighten($textSecondaryColor,40%);
+    box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.07);
+    .icon {
+        position: absolute;
+        left: 15px;
+        top: 9px;
+        font-size:1.6em;
+        color: lighten($textPrimaryColor, 25%)
+    }
+    .set-complete {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        span {
+            display: block;
+            float: left;
+        }
+    }
+}
+.sett-noti {
+    padding: 10px 15px;
+    position: relative;
+    padding-left: 50px;
+    background: $bgSecondaryColor;
+    font-size: 1em;
+    border: 1px solid lighten($textSecondaryColor,40%);
+    box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.07);
+    z-index: 9;
+    .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+        text-align: center;
+        background: transparent;
+        &:before {
+            content: '';
+            font-family: LineAwesome;
+            font-size: 18px;
+            line-height: 40px;
+        }
+    }
+    &.success {
+        border-color: $success;
+        .icon {
+            background: $success;
+            color: $textInvertColor;
+            &:before {
+                content: '\f17b';
+            }
+        }
+        .sett-publish {
+            margin-top: -2px
+        }
+    }
+    &.danger {
+        border-color: $danger;
+        .icon {
+            background: $danger;
+            color: $textInvertColor;
+            &:before {
+                content: '\f1cd';
+            }
+        }
+        .sett-publish {
+            font-size: .8em;
+            line-height: 20px;
+        }
+    }
+}
+ul.sett-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+.s-cover {
+    position: relative;
+    background: $bgSecondaryColor;
+    border: 1px solid lighten($textSecondaryColor,40%);
+    box-shadow: 0 1px 2px 0 rgba(0, 6, 10, 0.07);
+    margin-top: -1px;
+    .s-edit {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border: 1px solid lighten($textSecondaryColor, 40%);
+        background: $bgSecondaryColor;
+        border-radius: 50%;
+        top: 10px;
+        right: -13px;
+        line-height: 24px;
+        text-align: center;
+        opacity: 0;
+        outline: none;
+        box-shadow: 0 1px 3px 0 rgba(0, 6, 10, 0.07);
+        @include transistion(all .2s ease-in-out);
+        .edit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            font-size: 1em;
+            @include transistion(all .2s ease-in-out);
+        }
+        .cancel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            font-size: 1em;
+            @include transistion(all .2s ease-in-out);
+        }
+    }
+    .s-topic {
+        padding: 15px;
+        position: relative;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        @include transistion(all .2s ease-in-out);
+        h5 {
+            font-weight: bold;
+            font-size: .95em;
+            margin: 0;
+            margin-bottom: 8px;
+            @include transistion(all .2s ease-in-out);
+        }
+        .s-t-desc {
+            font-size: .85em;
+            opacity: .7;
+            @include transistion(all .2s ease-in-out);
+            .st-desc-hi {
+                font-weight: bold;
+                margin-left: 10px;
+            }
+        }
+        >.row {
+            margin-top: 5px;
+        }
+        .s-fill-status {
+            position: absolute;
+            right: 30px;
+            top: 20px;
+            font-size: 1.2em;
+            &.success {
+                color: $success;
+                &:after {
+                    content: '\f17c';
+                    font-family: LineAwesome;
+                }
+            }
+            &.danger {
+                color: $danger;
+                &:after {
+                    content: '\f1ce';
+                    font-family: LineAwesome;
+                }
+            }
+        }
+    }
+    .s-content {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        @include transistion(all .2s ease-in-out);
+        * {
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0 , 1);
+            @include transistion(all .2s ease-in-out);
+        }
+    }
+    &:hover {
+        .s-edit {
+            opacity: 1;
+        }
+    }
+    &.edit {
+        margin: 15px -20px;
+        .s-edit {
+            opacity: 1;
+            .edit {
+                opacity: 0;
+            }
+            .cancel {
+                opacity: 1;
+            }
+        }
+        .s-topic {
+            border-bottom: 1px solid lighten($textSecondaryColor, 40%);
+            h5 {
+                font-weight: bold;
+                font-size: 1.3em;
+                margin-bottom: 0;
+            }
+            .s-t-desc {
+                font-size: 0em;
+                opacity: 0;
+            }
+            .s-fill-status {
+                display: none;
+            }
+        }
+        .s-content {
+            padding: 15px;
+            height: auto;
+            * {
+                opacity: 1;
+                visibility: visible;
+                transform: scale(1 , 1);
+            }
+        }
+    }
+}

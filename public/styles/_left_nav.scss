@@ -1,0 +1,384 @@
+.nav-aside {
+	position: fixed;
+    left: 0;
+    top: 0;
+	width: 250px;
+	@include transistion(all .3s ease);
+	height: 100%;
+	z-index: 9999;
+	background: $bgHeadPrimary; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(65deg,$bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* Standard syntax */
+	-webkit-box-shadow: 1px 0 2px 0 rgba(darken($bgHeadPrimary,10%), 0.2);
+	box-shadow: 1px 0 2px 0 rgba(darken($bgHeadPrimary,10%), 0.2);
+	.brand-logo-section {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 70px;
+		background: $bgHeadPrimary; /* For browsers that do not support gradients */
+		background: -webkit-linear-gradient(30deg,$bgHeadPrimary, lighten($bgHeadPrimary , 10%)); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(30deg, $bgHeadPrimary, lighten($bgHeadPrimary , 10%)); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(30deg, $bgHeadPrimary, lighten($bgHeadPrimary , 10%)); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(30deg, $bgHeadPrimary, lighten($bgHeadPrimary , 10%)); /* Standard syntax */
+		@include transistion(all .3s ease);
+	}
+	.left-menu-section {
+		width: 50px;
+		height: 100%;
+		padding-top: 70px;
+		background: $bgHeadPrimary;
+		float: left;
+	}
+	.sub-menu-section {
+		width:calc(100% - 50px);
+		height: 100%;
+		padding-top: 70px;
+		overflow: hidden;
+		background: $bgHeadPrimary; /* For browsers that do not support gradients */
+		background: -webkit-linear-gradient(65deg,$bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(65deg, $bgHeadPrimary, lighten($bgHeadPrimary , 9%)); /* Standard syntax */
+		float: left;
+		overflow: hidden;
+		@include transistion(width .3s ease);
+		>* {
+			opacity: 1;
+			-ms-transform: scale(1);
+			-webkit-transform: scale(1);
+			transform: scale(1);
+			@include transistion(all .3s ease);
+			transition-delay: .2s;
+			-ms-transform-origin: 0 0;
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+		}
+	}
+}
+.pattern-overlay {
+	background-color: transparent;
+	background-image: url(../images/shattered.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom;
+}
+.brand-logo-box {
+	.brand-logo-container {
+		padding: 15px 12px 16px;
+		display: block;
+		width: 100%;
+		height: 100%;
+		visibility: visible;
+		opacity: 1;
+		-ms-transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		-ms-transform-origin: 0 0;
+		-webkit-transform-origin: 0 0;
+		transform-origin: 0 0;
+		@include transistion(all .2s ease);
+		.logo-img {
+			display: block;
+			float: left;
+			width: 40px;
+			img {
+				max-height: 100%;
+			}
+		}
+		.brand-name {
+			display: block;
+			float: left;
+			color: $textInvertColor;
+			padding: 0 10px;
+			opacity: 1;
+			-ms-transform: scale(1, 1);
+			-webkit-transform: scale(1, 1);
+			transform: scale(1, 1);
+			@include transistion(all .3s ease);
+			transition-delay: .4s;
+			h3,h5{
+				margin: 0;
+			}
+			h3 {
+				font-size: 1.4em;
+			}
+			h5 {
+				font-size: 1em;
+				opacity: .5;
+			}
+			>* {
+				width: 100%;
+				height: auto;
+				-ms-transform: scale(1);
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				@include transistion(all .3s ease);
+				transition-delay: .2s;
+			}
+		}
+	}
+}
+ul.vertical-menu-ul {
+	list-style: none;
+	margin: 0;
+	padding: 5px 0;
+	/*@include transistion(all .3s ease);*/
+	li {
+		width: 100%;
+		a{
+			position: relative;
+			display: block;
+			padding: 10px;
+			span {
+				display: block;
+				width: 30px;
+				height: 30px;
+				border-radius: 3px;
+				background: $textInvertColor;
+				color: $bgHeadPrimary;
+				line-height: 30px;
+				text-align: center;
+				font-size: 1.5em;
+				opacity: .5;
+				@include transistion(opacity 0.2s linear);
+			}
+			.menu-tooltip {
+				position: absolute;
+				visibility: hidden;
+				opacity: 0;
+				top: calc(50% - 10px);
+				left: 35px;
+				padding: 3px 8px;
+				color: rgba($textInvertColor, 0.73);
+				font-size: .85em;
+				border-radius: 3px;
+				background: rgba(darken($bgHeadPrimary,10%),.85);
+				z-index: 2;
+				@include transistion(all 0.2s linear);
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				visibility: hidden;
+				opacity: 0;
+				top: calc(50% - 4px);
+				left: 30px;
+				width: 0;
+				height: 0;
+				border-top: 5px solid transparent;
+				border-bottom: 5px solid transparent;
+				border-right: 5px solid rgba(darken($bgHeadPrimary,10%),.85);
+				@include transistion(all .2s linear);
+			}
+			&:hover {
+				span {
+					opacity: .75;
+				}
+				.menu-tooltip {
+					opacity: 1;
+					visibility:visible;
+					left: 55px;
+				}
+				&::before {
+					visibility: visible;
+					opacity: 1;
+					left: 50px;
+				}
+			}
+		}
+	}
+	li.active {
+		a{
+			span {
+				opacity: 1;
+			}
+		}
+	}
+}
+ul.vertical-submenu-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	>li {
+		display: none;
+		visibility: hidden;
+		opacity: 0;
+		&.active {
+			display: list-item;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+ul.vertical-submenu-ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		border-bottom: 1px solid rgba($bgSecondaryColor,.08);
+		a {
+			display: block;
+			position: relative;
+			padding: 12px 15px;
+			padding-left: 45px;
+			color: rgba($textInvertColor,.8);
+			text-decoration: none;
+			line-height: 16px;
+			@include transistion(all .3s ease-in-out);
+			>.submenu-icon {
+				position: absolute;
+				bottom: 8px;
+				left: 12px;
+				display: inline-block;
+				font-size: 1.4em;
+				transform: scale(1);
+				color: rgba($textInvertColor,.8);
+				@include transistion(all .2s ease-in-out);
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba($textInvertColor,.65);
+				background: -webkit-linear-gradient(90deg,$textInvertColor, darken($textInvertColor , 100%)); /* For Safari 5.1 to 6.0 */
+				background: -o-linear-gradient(90deg, $textInvertColor, darken($textInvertColor , 100%)); /* For Opera 11.1 to 12.0 */
+				background: -moz-linear-gradient(90deg, $textInvertColor, darken($textInvertColor , 100%)); /* For Firefox 3.6 to 15 */
+				background: linear-gradient(90deg, $textInvertColor, darken($textInvertColor , 100%)); /* Standard syntax */
+				opacity: .05;
+				@include transistion(all .3s ease-in-out);
+				transform: scale(0);
+			}
+			&::after {
+				content: '\f10e';
+				position: absolute;
+				bottom: 12px;
+				right: 10px;
+				font-family: LineAwesome;
+				font-size: 1.2em;
+				transform: translate(-2px,0) scale(0);
+				@include transistion(all .3s ease-in-out);
+			}
+			&:hover {
+				color: rgba($textInvertColor,.95);
+				background: darken($bgHeadSecondary,10%);
+				>.submenu-icon {
+					-webkit-animation: hover-shiver .5s linear;
+                	animation: hover-shiver .5s linear;
+				}
+				&::before {
+					transform: scale(1);
+				}
+				&::after {
+					transform: translate(0,0) scale(1);
+				}
+			}
+		}
+		&.active {
+			a{
+				color: rgba($textInvertColor,.95);
+				background: darken($bgHeadSecondary,10%);
+				>.submenu-icon {
+					transform: scale(1.2);
+				}
+				&::before {
+					transform: scale(1);
+				}
+				&::after {
+					transform: translate(0,0) scale(1);
+				}
+			}
+			&:hover {
+				a{
+					color: rgba($textInvertColor,.95);
+					background: darken($bgHeadSecondary,10%);
+					>.submenu-icon {
+						transform: scale(1.2);
+						-webkit-animation: none;
+						animation: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/*.sm-brand-logo {
+	width: 100%;
+	height: 0;
+	display: none;
+	max-width: 60px;
+    max-height: 51px;
+	padding: 0;
+	transform: scale(0, 1);
+	@include transistion(all .3s ease);
+	.logo-img {
+		width: 100%;
+	}
+}*/
+.sidebar-close {
+	>.nav-aside {
+		width: 50px;
+		@include transistion(all .3s ease);
+		.brand-logo-section {
+			height: 51px;
+			overflow: hidden;
+			/*@include transistion(all .3s ease);
+			transition-delay: .1s;*/
+		}
+		/*.sm-brand-logo  {
+			display: block;
+			height: auto;
+   			padding: 12px 10px;
+			transform: scale(1);
+			@include transistion(all .3s ease);
+		}*/
+		.brand-logo-container {
+			opacity: 1;
+			padding: 12px 8px;
+			.logo-img {
+				width: 100%;
+				max-width: 35px;
+			}
+			.brand-name {
+				opacity: 0;
+				-ms-transform: scale(0, 1);
+				-webkit-transform: scale(0, 1);
+				transform: scale(0, 1);
+				transition-delay: 0s;
+				>* {
+					opacity: 0;
+					-ms-transform: scale(0, 1);
+					-webkit-transform: scale(0, 1);
+					transform: scale(0, 1);
+					@include transistion(all .3s ease);
+				}
+			}
+		}
+		.left-menu-section {
+			height: 100%;
+			padding-top: 51px;
+			@include transistion(all .3s ease);
+		}
+		.sub-menu-section {
+			width: 0;
+			height:100%;
+			padding-top: 51px;
+			@include transistion(all .3s ease);
+			>* {
+				opacity: 0;
+				-ms-transform: scale(0);
+				-webkit-transform: scale(0);
+				transform: scale(0);
+				@include transistion(all .3s ease);
+				transition-delay: 0s;
+			}
+		}
+	}
+}

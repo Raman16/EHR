@@ -1,0 +1,35 @@
+/* Colors to be used */
+
+$bgHeadPrimary: #003a56;
+$bgHeadSecondary: #236e92;
+
+$bgPrimaryColor: #f9fafa;
+$bgSecondaryColor:#fff;
+
+$textInvertColor:#fff;
+
+$textPrimaryColor:#09232f;
+$textSecondaryColor:#728e9a;
+
+$badgeBg:#d01d1d;
+
+$success:#0bc043;
+$info:#0ba7c0;
+$warning:#e0ab14;
+$danger:#d01d1d;
+
+$colors: (
+    'color1' : #14bb00,
+    'color2' : #00bbbb,
+    'color3' : #bb0081,
+    'color4' : #03a9f4,
+    'color5' : #bb0000,
+    'color6' : #63925d
+);
+
+@each $name, $color in $colors {
+    .app#{$name} {
+        border-color:darken($color, 5%) !important;
+        background: $color !important;
+    }
+}

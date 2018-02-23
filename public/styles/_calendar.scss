@@ -1,0 +1,327 @@
+/************************** Calendar Plugin Over write *************************/
+.medrixo-calendar {
+    margin-top: 15px;
+    padding: 15px 0;
+    .fc-toolbar {
+        &.fc-header-toolbar {
+            margin-bottom: .5em;
+            padding: 0 40px;
+        }
+        h2 {
+            font-size: 1em;
+            font-weight: bold;
+            opacity: .7;
+            line-height: 26px;
+            margin-top: 5px;
+            position: relative;
+            padding-left: 20px;
+            &:after {
+                content: '\f15c';
+                font-family: LineAwesome;
+                position: absolute;
+                left: 0;
+                font-size: 1.2em;
+                opacity: 0.8;
+            }
+        }
+    }
+    .fc-view-container {
+        position: relative;
+        margin-top: 15px;
+        background: $bgSecondaryColor;
+        border-radius: 3px;
+        border: 1px solid darken($bgPrimaryColor, 5%);
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(darken($bgHeadPrimary,15%),.07);
+    }
+    button {
+        height: auto;
+        padding: 8px 15px 7px 30px;
+        font-size: .9em;
+        outline: none;
+        position: relative;
+        &:hover,&:focus, &:focus:active {
+            outline: none;
+        }
+        &:before {
+            font-family: LineAwesome;
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            font-size: 1.5em;
+            opacity: .5;
+        }
+        &.fc-prev-button:before {
+            content: '\f111';
+        }
+        &.fc-next-button:before {
+            content: '\f112';
+        }
+        &.fc-month-button:before {
+            content: '\f15c';
+        }
+        &.fc-agendaWeek-button:before {
+            content: '\f105';
+        }
+        &.fc-agendaDay-button:before {
+            content: '\f26d';
+        }
+        &.fc-today-button:before {
+            content: '\f15d';
+        }
+    }
+    .fc-state-default {
+        background-image: none;
+        background: transparent;
+        border-color: lighten($textSecondaryColor,20%);
+        color: $textSecondaryColor;
+        &.fc-state-hover, &:focus {
+            z-index: 0;
+        }
+        &.fc-corner-left {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+        &.fc-corner-right {
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+        &.fc-state-active {
+            background: $bgSecondaryColor;
+            border-color: lighten($textSecondaryColor,35%);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0,.15);
+        }
+        &.fc-prev-button {
+            background: $bgSecondaryColor;
+            border-color: lighten($textSecondaryColor,35%);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0,.15);
+        }
+        &.fc-next-button {
+            background: $bgSecondaryColor;
+            border-color: lighten($textSecondaryColor,35%);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0,.15);
+        }
+        &.fc-today-button {
+            background: $bgSecondaryColor;
+            border-color: lighten($textSecondaryColor,35%);
+            box-shadow: 1px 1px 2px rgba(0, 0, 0,.15);
+        }
+        &:disabled {
+            background: transparent;
+            border-color: lighten($textSecondaryColor,20%);
+            color: $textSecondaryColor;
+            box-shadow: none;
+        }
+    }
+    .fc-content-skeleton td, .fc-helper-skeleton td {
+        background: 0 0;
+        opacity: 1;
+    }
+    .fc-time-grid .fc-slats td {
+        height: 4em;
+    }
+    .fc-event {
+        border: none;
+        border-left: 7px solid $bgHeadSecondary;
+        border-radius: 1px;
+        background: lighten($bgHeadSecondary, 45%);
+        margin-bottom: 1px;
+        padding: 2px;
+        font-size: .7em;
+        color: $textInvertColor;
+        text-shadow: 0 0 3px rgba($bgHeadPrimary, 0.7);
+        box-shadow: 0 1px 1px 0 rgba($bgHeadPrimary, 0.3);
+        cursor: pointer;
+        overflow: visible;
+        .fc-time {
+            float: right;
+            opacity: .7;
+            &:after {
+                content: '';
+            }
+        }
+    }
+    th {
+        padding: 16px 0;
+        border-width: 0px;
+        color: $textSecondaryColor;
+        font-weight: 400;
+    }
+    td.fc-head-container {
+        border-width: 0px;
+        >.fc-widget-header {
+            border-right-width: 0px !important;
+        }
+    }
+    td.fc-time {
+        border-width: 0px;
+        color: $textSecondaryColor;
+    }
+    .fc-content,  .fc-divider,  .fc-list-heading td,  .fc-list-view,  .fc-popover,  .fc-row,  tbody,  td,  th,  thead {
+        border-color: lighten($textSecondaryColor, 30%);
+        border-left-width: 0;
+    }
+    .fc-scroller {
+        min-height: 400px;
+        max-height: 650px;
+         @media only screen and (max-width : $smallScreen) {
+           max-height: 500px;
+        }
+    }
+    .fc-basic-view .fc-body .fc-row {
+        max-height: 10em;
+        @media only screen and (max-width : $smallScreen) {
+           max-height: 6em;
+        }
+    }
+    .fc-basic-view {
+        .fc-day-number {
+            width: 18px;
+            height: 18px;
+            margin: 3px 3px 0 0;
+            padding: 0;
+            border-radius: 12px;
+            font-size: .7em;
+            line-height: 18px;
+            background: transparent;
+            color: $textPrimaryColor;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .fc-today {
+            .fc-day-number {
+                background: lighten($textPrimaryColor, 25%);
+                color: $textInvertColor;
+                font-size: .65em;
+            }
+        }
+    }
+    td.fc-day.fc-today {
+        background-image: url(../images/diagonal-noise.png);
+        opacity: .2 ;
+    }
+    .fc-other-month {
+        background: url(../images/argyle.png) repeat;
+        background-size: contain;
+        opacity: .1;
+    }
+}
+/*************************************************************/
+
+
+
+.cal-event-popup {
+    position: absolute;
+    bottom: 0px;
+    right: -250px;
+    width: 250px;
+    padding: 10px;
+    font-size: 1.1em;
+    color: $textPrimaryColor;
+    background: $bgSecondaryColor;
+    border-radius: 2px;
+    text-shadow: none;
+    border: 1px solid darken($bgPrimaryColor, 10%);
+    box-shadow: 0 0 2px 0 rgba($bgHeadPrimary,.2);
+    box-sizing: border-box;
+    z-index: 1999;
+    .cal-app-box {
+        padding-right: 70px;
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid lighten($textSecondaryColor, 30%);
+        .pat-img-id {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 70px;
+            padding: 8px 2px;
+            text-align: center;
+            border-left: 1px solid lighten($textSecondaryColor, 30%);
+            img {
+                width: 35px;
+                border-radius: 50%;
+            }
+            h5 {
+                font-size: .85em;
+                margin: 0;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+        }
+        h4 {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+            padding: 6px 0;
+        }
+        h5 {
+            font-size: .9em;
+            margin: 4px 0;
+            white-space: nowrap;
+        }
+    }
+    .pat-update-box {
+        position: relative;
+        padding: 25px 0;
+        border-bottom: 1px solid lighten($textSecondaryColor, 30%);
+        .pat-short-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px solid lighten($textSecondaryColor, 30%);
+            a {
+                display: block;
+                width: 33%;
+                padding: 3px 0;
+                float: left;
+                font-size: .8em;
+                color: rgba($textPrimaryColor, .7);
+                text-align: center;
+                text-decoration: none;
+                &:not(:last-child) {
+                    border-right: 1px solid lighten($textSecondaryColor, 30%);
+                }
+            }
+        }
+        .app-status-update {
+            min-height: 50px;
+            p {
+                font-size: .8em;
+                margin-bottom: 2px;
+            }
+        }
+        .pat-app-schedule {
+            position: absolute;
+            bottom: 3px;
+            left: 0;
+            width: 100%;
+            .pat-schedule-time {
+                float: right;
+                font-size: .8em;
+                font-weight: bold;
+                opacity: .5;
+            }
+            h4 {
+                margin: 0;
+                font-size: 1em;
+                font-weight: bold;
+            }
+        }
+    }
+    .pat-app-status {
+        padding: 5px 0;
+        .appointment-status-box {
+            display: block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            font-size: .8em;
+            color: $textInvertColor;
+            text-align: center;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+    }
+}
